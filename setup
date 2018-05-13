@@ -1,0 +1,31 @@
+#!/bin/bash
+
+if [ `id -u` -ne 0 ]; then
+    echo "pls use sudo"
+    exit 0
+fi
+
+echo "start set env"
+
+echo "export GOROOT=/work/tools/go" >> /etc/profile
+echo "export GOPATH=/work/go" >> /etc/profile
+echo "export GOBIN=/work/go/bin" >> /etc/profile
+echo "export JAVA_HOME=/work/tools/jdk1.8.0_171" >> /etc/profile
+echo "export GRADLE_USER_HOME=/work/tools/gradle-cache" >> /etc/profile
+echo "export ANDROID_HOME=/work/tools/SDK" >> /etc/profile
+echo "export PATH=\$GOROOT/bin:\$GOBIN:/work/tools/android-studio/gradle/gradle-4.4/bin:\$ANDROID_HOME/platform-tools:\$PATH" >> /etc/profile
+
+apt install -y vim-gtk python-pip fcitx screen terminator polipo wmctrl xdotool git gitk virtualbox
+
+dpkg -i /data/ubuntu/*.deb
+
+apt install -f
+
+pip install shadowsocks
+
+apt remove libreoffice-* -f
+
+echo "socksParentProxy=localhost:1080" >> /etc/polipo/config
+echo "proxyPort=1081" >> /etc/polipo/config
+
+/etc/init.d/polipo restart
