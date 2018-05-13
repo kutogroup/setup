@@ -15,7 +15,7 @@ echo "export GRADLE_USER_HOME=/work/tools/gradle-cache" >> /etc/profile
 echo "export ANDROID_HOME=/work/tools/SDK" >> /etc/profile
 echo "export PATH=\$GOROOT/bin:\$GOBIN:/work/tools/android-studio/gradle/gradle-4.4/bin:\$ANDROID_HOME/platform-tools:\$PATH" >> /etc/profile
 
-apt install -y vim-gtk python-pip fcitx screen terminator polipo wmctrl xdotool git gitk virtualbox
+apt install -y vim-gtk python-pip fcitx screen terminator polipo wmctrl xdotool git gitk virtualbox nginx mysql-server mysql-workbench
 
 dpkg -i /data/ubuntu/*.deb
 
